@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-[1000] primaryGradient font-mont flex px-5 justify-between items-center pt-8 pb-4 md:px-20 border-b border-white">
       <Link to="/">
-        <img src={logo} alt={logo} width="150" />
+        <img src={logo} alt={logo} className="w-[150px] select-none" />
       </Link>
       <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
         <ul className="flex gap-10 items-center">
@@ -28,7 +28,12 @@ const Navbar = () => {
             <NavLink to="/contact-us">Contact</NavLink>
           </li>
         </ul>
-        <button className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none">
+        <button
+          onClick={() => {
+            window.location.href = "/register";
+          }}
+          className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none"
+        >
           Register
         </button>
       </div>

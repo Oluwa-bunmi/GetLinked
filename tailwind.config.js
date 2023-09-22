@@ -23,6 +23,7 @@ export default {
       },
       backgroundImage: {
         firstLens: "url('../src/assets/gradientbg.png')",
+        secondLens: "url('../src/assets/secondLens.png')",
       },
     },
   },
