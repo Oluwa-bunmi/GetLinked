@@ -21,9 +21,13 @@ export default {
         unica: "'Unica One', cursive",
         mont: "'Montserrat', sans-serif",
       },
+      boxShadow: {
+        regshadow: "0px 4px 4px 0px #00000040",
+      },
       backgroundImage: {
         firstLens: "url('../src/assets/gradientbg.png')",
         secondLens: "url('../src/assets/secondLens.png')",
+        buttonGradient: "linear-gradient(270deg,#903aff,#fe34b9)",
       },
     },
   },

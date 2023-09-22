@@ -57,8 +57,9 @@ const Home = () => {
       {/* <div className="absolute z-[-1] top-[-450px] left-[-70px]">
             <img src={lens} alt="Hackathon Lens" />
           </div> */}
+      <Navbar />
       <section className="primaryGradient text-center lg:text-left text-white font-mont">
-        <section className="bg-firstLens">
+        <section className="bg-firstLens bg-cover bg-center">
           <div className="flex justify-center lg:justify-end xl:px-10 pt-36">
             <h1 className="italic font-bold text-[15px] lg:text-[31px]">
               Igniting a Revolution in HR <span class="type-writer"></span>
@@ -104,7 +105,12 @@ const Home = () => {
                 win a Big prize
               </p>
               <div className="flex justify-center xl:justify-start">
-                <button className="buttonGradient rounded-[4px] w-[152px] lg:w-[172px] h-[53px] mt-10 lg:mb-14 mb-8">
+                <button
+                  onClick={() => {
+                    window.location.href = "/register";
+                  }}
+                  className="buttonGradient rounded-[4px] w-[152px] lg:w-[172px] h-[53px] mt-10 lg:mb-14 mb-8"
+                >
                   Register
                 </button>
               </div>
