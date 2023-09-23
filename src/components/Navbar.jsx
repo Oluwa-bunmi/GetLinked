@@ -4,7 +4,7 @@ import menu from "../assets/menu.png";
 import exit from "../assets/exit.png";
 import { useState } from "react";
 const Navbar = () => {
-  const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState(false);
   const [color, setColor] = useState(false);
   const handleNav = () => {
     setNav(!nav);
@@ -31,16 +31,27 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
           <ul className="flex gap-10 items-center">
             <li>
-              <NavLink>Timeline</NavLink>
+              <NavLink className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+                Timeline
+              </NavLink>
             </li>
             <li>
-              <NavLink>Overview</NavLink>
+              <NavLink className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+                Overview
+              </NavLink>
             </li>
             <li>
-              <NavLink>FAQs</NavLink>
+              <NavLink to="/#faq" className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+                FAQs
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact-us">Contact</NavLink>
+              <NavLink
+                to="/contact-us"
+                className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all"
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
           <button
@@ -98,6 +109,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {/* <a
+        class="text-base font-normal "
+        href="/#faqs"
+      >
+        FAQs
+      </a> */}
     </nav>
   );
 };

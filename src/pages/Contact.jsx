@@ -17,10 +17,10 @@ const Contact = () => {
   useEffect(() => {
     const shineInterval = setInterval(() => {
       setIsShining((prevIsShining) => !prevIsShining);
-    }, 2000); // Toggle every 2 seconds (adjust as needed)
+    }, 2000);
 
     return () => {
-      clearInterval(shineInterval); // Cleanup the interval on unmount
+      clearInterval(shineInterval); 
     };
   }, []);
   const initialValues = {
@@ -50,7 +50,6 @@ const Contact = () => {
 
       if (response.status === 201) {
         // console.log("Registration successful!");
-        // openModal();
         actions.resetForm();
       } else {
         console.error("Registration failed with status code:", response.status);

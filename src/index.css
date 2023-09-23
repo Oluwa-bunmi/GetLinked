@@ -57,7 +57,7 @@
   }
   100% {
     opacity: 0.5;
-     transform: none; /* End with the original size */
+    transform: none; /* End with the original size */
   }
 }
 
@@ -130,5 +130,8 @@ label {
     linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04));
 }
 
-/* .active{
-color: linear-gradient(90deg, #903AFF 3.08%, #FF26B9 93.85%); } */
+.active {
+  color: transparent;
+  background: linear-gradient(270deg, #903aff, #fe34b9);
+  background-clip: text;
+}
