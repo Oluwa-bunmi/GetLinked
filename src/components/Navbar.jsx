@@ -4,62 +4,32 @@ import menu from "../assets/menu.png";
 import exit from "../assets/exit.png";
 import { useState } from "react";
 const Navbar = () => {
-   const [nav, setNav] = useState(false);
-   const handleNav = () => {
-     setNav(!nav);
-   };
+  const [nav, setNav] = useState(true);
+  const [color, setColor] = useState(false);
+  const handleNav = () => {
+    setNav(!nav);
+  };
+  const changeColor = () => {
+    if (window.scrollY >= 76) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
   return (
-    <nav className="fixed w-full z-[1000] primaryGradient font-mont flex px-5 justify-between items-center pt-8 pb-4 md:px-20 border-b border-white">
-      <Link to="/">
-        <img src={logo} alt={logo} className="w-[150px] select-none" />
-      </Link>
-      <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
-        <ul className="flex gap-10 items-center">
-          <li>
-            <NavLink>Timeline</NavLink>
-          </li>
-          <li>
-            <NavLink>Overview</NavLink>
-          </li>
-          <li>
-            <NavLink>FAQs</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact-us">Contact</NavLink>
-          </li>
-        </ul>
-        <button
-          onClick={() => {
-            window.location.href = "/register";
-          }}
-          className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none"
-        >
-          Register
-        </button>
-      </div>
-      <div className="block lg:hidden">
-        {/* <FaBars size={25} onClick={handleNav} className="text-white" /> */}
-        <img src={menu} alt="menu" onClick={handleNav} />
-      </div>
-      {/* Mobile dropdown menu */}
+    <nav className="fixed bg-transparent top-0 h-[76px] lg:h-[90px] left-0 z-[100] ease-in duration-300 w-full overflow-hidden">
       <div
-        className={
-          nav
-            ? "absolute top-0 right-0 bottom-0 w-full"
-            : "absolute right-[-100%]"
-        }
+        className={`font-mont flex px-5 justify-between
+       items-center md:px-20 border-b border-[#ffffff2e] h-full ${
+         color ? "primaryGradient border-none" : ""
+       }`}
       >
-        <div className="flex flex-col py-6 menuBg z-10 relative h-screen text-white">
-          <div className="flex justify-end">
-            {/* <IoMdClose
-              size={20}
-              className="mr-9 mt-2 borderGradient"
-              onClick={handleNav}
-            /> */}
-            <img src={exit} alt="" onClick={handleNav} className="mr-9 mt-2" />
-          </div>
-
-          <ul className="flex gap-6 flex-col pl-12 pt-16">
+        <Link to="/">
+          <img src={logo} alt={logo} className="w-[150px] select-none" />
+        </Link>
+        <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
+          <ul className="flex gap-10 items-center">
             <li>
               <NavLink>Timeline</NavLink>
             </li>
@@ -72,10 +42,60 @@ const Navbar = () => {
             <li>
               <NavLink to="/contact-us">Contact</NavLink>
             </li>
-            <button className="buttonGradient rounded-[4px] w-[172px] h-[53px]">
-              Register
-            </button>
           </ul>
+          <button
+            onClick={() => {
+              window.location.href = "/register";
+            }}
+            className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none"
+          >
+            Register
+          </button>
+        </div>
+        <div className="block lg:hidden">
+          <img src={menu} alt="menu" onClick={handleNav} />
+        </div>
+        {/* Mobile dropdown menu */}
+        <div
+          className={
+            nav
+              ? "fixed top-0 right-0 w-full menuBg transition ease-in-out flex flex-col py-6 h-screen text-white"
+              : "absolute right-[-100%]"
+          }
+        >
+          <div className="flex flex-col py-6 relative h-screen text-white">
+            <div className="flex justify-end">
+              <img
+                src={exit}
+                alt="close"
+                onClick={handleNav}
+                className="mr-9 mt-2"
+              />
+            </div>
+
+            <ul className="flex gap-6 flex-col pl-12 menuBg h-screen pt-16">
+              <li>
+                <NavLink>Timeline</NavLink>
+              </li>
+              <li>
+                <NavLink>Overview</NavLink>
+              </li>
+              <li>
+                <NavLink>FAQs</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact-us">Contact</NavLink>
+              </li>
+              <button
+                onClick={() => {
+                  window.location.href = "/register";
+                }}
+                className="buttonGradient rounded-[4px] w-[172px] h-[53px]"
+              >
+                Register
+              </button>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

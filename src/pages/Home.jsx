@@ -58,7 +58,7 @@ const Home = () => {
             <img src={lens} alt="Hackathon Lens" />
           </div> */}
       <Navbar />
-      <section className="primaryGradient text-center lg:text-left text-white font-mont">
+      <section className="relative primaryGradient text-center lg:text-left text-white font-mont">
         <section className="bg-firstLens bg-cover bg-center">
           <div className="flex justify-center lg:justify-end xl:px-10 pt-36">
             <h1 className="italic font-bold text-[15px] lg:text-[31px]">
