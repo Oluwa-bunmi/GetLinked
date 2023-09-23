@@ -41,7 +41,10 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/#faq" className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+              <NavLink
+                to="/#faq"
+                className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all"
+              >
                 FAQs
               </NavLink>
             </li>
@@ -54,14 +57,11 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <button
-            onClick={() => {
-              window.location.href = "/register";
-            }}
-            className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none"
-          >
-            Register
-          </button>
+          <Link to="/register">
+            <button className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none">
+              Register
+            </button>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <img src={menu} alt="menu" onClick={handleNav} />
