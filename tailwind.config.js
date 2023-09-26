@@ -2,19 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      // sm: "576px",
-      // => @media (min-width: 576px) { ... }
+    // screens: {
+  
 
-      // md: "960px",
-      // => @media (min-width: 960px) { ... }
-
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1348px",
-      // => @media (min-width: 1440px) { ... }
-    },
+    //   sm: "640px",
+    //   md: "768px",
+    //   lg: "1024px",
+    //   xl: "1348px",
+ 
+    // },
 
     extend: {
       fontFamily: {

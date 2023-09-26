@@ -4,9 +4,9 @@ import "../assets/fonts/fonts.css";
 import HacktonGuy from "../assets/hackathon_guy.png";
 import HacktonChain from "../assets/hackathon_chain.png";
 import HacktonCreative from "../assets/hackathon_creative.png";
+import Line from "../assets/border_line.png";
 import HacktonStar from "../assets/hackathon_star.png";
 import HacktonIdea from "../assets/hackathon_idea.png";
-import Line from "../assets/border_line.png";
 import key from "../assets/keyVector.png";
 import faqVector from "../assets/faqFake.png";
 import circular from "../assets/circular.png";
@@ -15,6 +15,7 @@ import circular from "../assets/circular.png";
 import guide from "../assets/ruleVector.png";
 import { useEffect, useState } from "react";
 import Faq from "../components/Faq";
+import Hero from "../components/Hero";
 const Home = () => {
   // bg-[#150E28]
   const [remainingTime, setRemainingTime] = useState(getTimeRemaining());
@@ -72,101 +73,7 @@ const Home = () => {
             <img src={lens} alt="Hackathon Lens" />
           </div> */}
       <Navbar />
-      <section className="primaryGradient text-center lg:text-left text-white font-mont">
-        <section className="bg-firstLens bg-cover bg-center">
-          <div className="flex justify-center lg:justify-end xl:px-10 pt-36">
-            <h1 className="italic font-bold text-[15px] lg:text-[31px]">
-              Igniting a Revolution in HR <span class="type-writer"></span>
-            </h1>
-          </div>
-          <div className="flex justify-end px-10 mb-8 xl:mb-16">
-            <img src={Line} alt="Curve" className="w-[115px] lg:w-[253px]" />
-          </div>
-          <section className="grid gap-16 xl:gap-0 relative xl:grid-cols-[50%_50%] items-center z-[10] px-5 md:px-20">
-            <div className="flex flex-col">
-              {/* sm:leading-[61px] leading-[39px] lg:leading-[98.4px] */}
-              <div className="flex justify-center xl:justify-start items-end text-[28px] sm:text-[45px] lg:text-[70px] font-bold clash">
-                <h1>getlinked Te</h1>
-                <span className="flex flex-col-reverse">
-                  c
-                  <img
-                    src={HacktonCreative}
-                    alt="Hackathon Creative"
-                    className="w-[18px] lg:w-[53px] -mb-4 sm:-mb-6 xl:-mb-8"
-                  />
-                </span>
-                <h1>h</h1>
-              </div>
-              <div className="flex justify-center xl:justify-start items-center gap-2 flex-nowrap">
-                <h1 className="text-[28px] sm:text-[45px] sm:leading-[61px] lg:text-[70px] clash leading-[39px] lg:leading-[98.4px]">
-                  Hackathon <span className="text-[#D434FE]">1.0</span>
-                </h1>
-                <div className="flex">
-                  <img
-                    src={HacktonChain}
-                    alt="Hackathon Chain"
-                    className="w-[32px] lg:w-[53px]"
-                  />
-                  <img
-                    src={HacktonStar}
-                    alt="Hackathon Star"
-                    className="w-[32px]"
-                  />
-                </div>
-              </div>
-              <p className="text-[13px] lg:text-xl text-center xl:text-left">
-                Participate in getlinked tech Hackathon 2023 stand a chance to
-                win a Big prize
-              </p>
-              <div className="flex justify-center xl:justify-start">
-                <button
-                  onClick={() => {
-                    window.location.href = "/register";
-                  }}
-                  className="buttonGradient rounded-[4px] w-[152px] lg:w-[172px] h-[53px] mt-10 lg:mb-14 mb-8"
-                >
-                  Register
-                </button>
-              </div>
-              <div className="flex justify-center lg:justify-start font-unica gap-5">
-                <h1 className="flex items-end">
-                  <span className="text-[48px] lg:text-[64px]">
-                    {formatNumber(remainingTime.hours)}
-                  </span>
-                  <span className="font-mont text-[14px]"> H</span>
-                </h1>
-                <h1 className="flex items-end">
-                  <span className="text-[48px] lg:text-[64px]">
-                    {formatNumber(remainingTime.minutes)}
-                  </span>
-                  <span className="font-mont text-[14px]"> M</span>
-                </h1>
-                <h1 className="flex items-end">
-                  <span className="text-[48px] lg:text-[64px]">
-                    {formatNumber(remainingTime.seconds)}
-                  </span>
-                  <span className="font-mont text-[14px]"> S</span>
-                </h1>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <img
-                src={HacktonGuy}
-                alt="Hackathon Guy"
-                width="100%"
-                className=""
-              />
-              <div className="round absolute right-[42px] lg:top-[467px] xl:!top-[39px] xl:!right-[99px] top-[281px] sm:right-[76px]">
-                <img
-                  src={circular}
-                  alt="Hackathon Glow"
-                  className="w-[500px]"
-                />
-              </div>
-            </div>
-          </section>
-        </section>
-      </section>
+      <Hero />
       {/* CODE FOR SECOND SECTION */}
       <section className="primaryGradient text-white grid gap-8 xl:gap-0 xl:grid-cols-2 py-8 items-center border-y border-white px-5 md:px-20">
         <div className="flex">
@@ -196,7 +103,7 @@ const Home = () => {
         </div>
       </section>
       {/* CODE FOR THIRD SECTION */}
-      <section className="bg-secondLens py-8 bg-cover bg-center border-b border-white text-white grid xl:grid-cols-2 gap-8 xl:gap-0 items-center px-5 md:px-20">
+      {/* <section className="bg-secondLens py-8 bg-cover bg-center border-b border-white text-white grid xl:grid-cols-2 gap-8 xl:gap-0 items-center px-5 md:px-20">
         <img
           src={guide}
           alt="illustrator"
@@ -237,9 +144,9 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
       {/* CODE FOR FORTH SECTION */}
-      <section className="grid gap-6 xl:grid-cols-2 items-center bg-cover bg-secondLens text-white pt-20 pb-14 px-5 md:px-20">
+      {/* <section className="grid gap-6 xl:grid-cols-2 items-center bg-cover bg-secondLens text-white pt-20 pb-14 px-5 md:px-20">
         <div>
           <div className="flex justify-center xl:justify-start">
             <PiStarFourFill
@@ -315,8 +222,8 @@ const Home = () => {
             </li>
           </ul>
         </div>
-      </section>
-      <section
+      </section> */}
+      {/* <section
         id="faq"
         className="px-5 md:px-20 grid text-white gap-6 xl:grid-cols-2 items-center bg-secondLens bg-cover pt-20 pb-14"
       >
@@ -331,7 +238,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

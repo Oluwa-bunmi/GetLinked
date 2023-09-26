@@ -18,11 +18,11 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeColor);
   return (
-    <nav className="fixed bg-transparent top-0 h-[76px] lg:h-[90px] left-0 z-[100] ease-in duration-300 w-full overflow-hidden">
+    <nav className="fixed bg-transparent border-b border-[#ffffff2e] top-0 h-[76px] lg:h-[90px] left-0 z-[100] ease-in duration-300 w-full overflow-hidden">
       <div
         className={`font-mont flex px-5 justify-between
-       items-center md:px-20 border-b border-[#ffffff2e] h-full ${
-         color ? "primaryGradient border-none" : ""
+       items-center md:px-20 h-full layout ${
+         color ? "primaryGradient w-full border-none" : ""
        }`}
       >
         <Link to="/">

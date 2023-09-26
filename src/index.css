@@ -6,9 +6,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* * {
-  font-family: "Montserrat", sans-serif;
-} */
+
 /* .see {
   background: linear-gradient(180deg, #903aff 0%, #ff26b9 100%);
 } */
@@ -48,22 +46,20 @@
 @keyframes shine {
   0% {
     opacity: 0.5;
-    /* transform: scale(1); */
-    transform: none; /* Start with the original size */
+    transform: none;
   }
   50% {
     opacity: 1;
-    transform: scale(1); /* Increase size halfway through */
+    transform: scale(1);
   }
   100% {
     opacity: 0.5;
-    transform: none; /* End with the original size */
+    transform: none;
   }
 }
 
 .star {
-  /* Your star icon styles */
-  animation: shine 3s infinite; /* Apply the shine animation */
+  animation: shine 3s infinite;
 }
 /* .star {
   animation: colorChange 1.5s infinite alternate;
@@ -84,10 +80,7 @@ textarea {
   padding: 10px 15px;
   border-radius: 4px;
 }
-.ReactModal__Overlay {
-  z-index: 1000;
-  background: none !important;
-}
+
 label {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -100,31 +93,69 @@ label {
   background-position: center;
   background-size: cover;
 }
-@media screen and (min-width: 830px) {
+/* @media screen and (min-width: 830px) {
   .round {
     right: 116px !important;
   }
-}
-@media screen and (min-width: 861px) {
+} */
+@media screen and (min-width: 860px) {
   .round {
-    right: 136px !important;
+    right: 88px !important;
+    top: 362px !important;
   }
 }
-@media screen and (min-width: 899px) {
+@media screen and (min-width: 930px) {
   .round {
-    right: 159px !important;
+    right: 140px !important;
   }
 }
-@media screen and (min-width: 933px) {
+
+@media screen and (min-width: 954px) {
   .round {
-    right: 191px !important;
+    right: 163px !important;
   }
 }
-@media screen and (min-width: 1000px) {
+
+@media screen and (min-width: 975px) {
   .round {
-    right: 237px !important;
+    right: 184px !important;
   }
-}
+} 
+
+@media screen and (min-width: 1024px) {
+  .round {
+    top: 2% !important;
+    right: 8% !important; 
+     width: 400px !important;
+  }
+} 
+@media screen and (min-width: 1110px) {
+  .round {
+    right: 9% !important;
+  }
+} 
+@media screen and (min-width: 1190px) {
+  .round {
+    right: 10% !important;
+  }
+} 
+@media screen and (min-width: 1220px) {
+  .round {
+    right: 11% !important;
+  }
+} 
+@media screen and (min-width: 1310px) {
+  .round {
+    right: 13% !important;
+  }
+} 
+@media screen and (min-width: 1440px) {
+  .round {
+   width: 570px !important;
+    top: -17% !important;
+    right: -4% !important;
+  }
+} 
 .menuBg {
   background: linear-gradient(0deg, #150e28, #150e28),
     linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04));
@@ -134,4 +165,16 @@ label {
   color: transparent;
   background: linear-gradient(270deg, #903aff, #fe34b9);
   background-clip: text;
+}
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+@media screen and (min-width: 1440px) {
+  .layout {
+    width: 80%;
+    margin: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
