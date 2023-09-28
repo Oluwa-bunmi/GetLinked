@@ -59,9 +59,9 @@ const Hero = () => {
     return number < 10 ? `0${number}` : number;
   }
   return (
-    <section className="primaryGradient text-center lg:text-left text-white font-mont">
+    <section className="text-center lg:text-left text-white font-mont">
       <section className="bg-firstLens bg-cover bg-center">
-        <div className="flex sm:gap-[6px] lg:gap-0 items-start pt-36 justify-center lg:justify-end lg:pr-[2%] mb-4">
+        <div className="flex sm:gap-[6px] lg:gap-0 items-start pt-36 justify-center lg:justify-end lg:pr-[2%] mb-4 typewriter">
           <h1 className="italic font-bold text-[14px] sm:text-[19px] md:text-[21px] lg:text-[29px]">
             Igniting a Revolution in
           </h1>
@@ -79,7 +79,7 @@ const Hero = () => {
         <img
           src={whiteStar}
           alt="Star"
-          className="w-3 lg:w-5 ml-[12%] star lg:mb-8 mt-8 mb-0"
+          className="w-3 lg:w-5 ml-[12%] star lg:mb-8 mt-8 mb-0 heroStar"
         />
         <div className="flex justify-end lg:hidden mt pr-[12%] py-2">
           <img
@@ -89,7 +89,7 @@ const Hero = () => {
           />
         </div>
 
-        <section className="layout grid gap-16 relative lg:grid-cols-2 z-[10] px-5 md:px-20">
+        <section className="grid layout gap-16 relative lg:grid-cols-2 z-[10] px-5 md:px-20">
           <div className="flex flex-col justify-center">
             <div className="flex justify-center lg:justify-start items-end text-[28px] md:text-[43px] 2xl:text-[70px] font-bold clash">
               <h1>getlinked Te</h1>

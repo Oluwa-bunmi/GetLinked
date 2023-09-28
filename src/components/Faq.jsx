@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PiStarFourFill } from "react-icons/pi";
+import purpleStar from "../assets/purpleStar.png";
 
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
@@ -37,27 +37,17 @@ const Faq = () => {
     },
   ];
   const [openKey, setOpenKey] = useState();
-  const [isShining, setIsShining] = useState(false);
-
   const handleToggle = (key) => {
     setOpenKey(openKey !== key ? key : null);
   };
-  useEffect(() => {
-    const shineInterval = setInterval(() => {
-      setIsShining((prevIsShining) => !prevIsShining);
-    }, 2000);
 
-    return () => {
-      clearInterval(shineInterval);
-    };
-  }, []);
   return (
     <>
-      <div className="">
-        <PiStarFourFill
-          className={`star text-[#D434FE] text-[18px] xl:text-xl mb-2 ${
-            isShining ? "shining" : ""
-          }`}
+      <div>
+        <img
+          src={purpleStar}
+          alt="Star"
+          className="w-3 lg:w-5 ml-[12%] star mb-2"
         />
         <h1 className="leading-[36px] md:leading-[42px] text-xl md:text-[32px] clash font-bold">
           Frequently Ask

@@ -59,7 +59,7 @@
 }
 
 .star {
-  animation: shine 3s infinite;
+  animation: shine 2s infinite;
 }
 /* .star {
   animation: colorChange 1.5s infinite alternate;
@@ -120,42 +120,42 @@ label {
   .round {
     right: 184px !important;
   }
-} 
+}
 
 @media screen and (min-width: 1024px) {
   .round {
     top: 2% !important;
-    right: 8% !important; 
-     width: 400px !important;
+    right: 8% !important;
+    width: 400px !important;
   }
-} 
+}
 @media screen and (min-width: 1110px) {
   .round {
     right: 9% !important;
   }
-} 
+}
 @media screen and (min-width: 1190px) {
   .round {
     right: 10% !important;
   }
-} 
+}
 @media screen and (min-width: 1220px) {
   .round {
     right: 11% !important;
   }
-} 
+}
 @media screen and (min-width: 1310px) {
   .round {
     right: 13% !important;
   }
-} 
+}
 @media screen and (min-width: 1440px) {
   .round {
-   width: 570px !important;
+    width: 570px !important;
     top: -17% !important;
     right: -4% !important;
   }
-} 
+}
 .menuBg {
   background: linear-gradient(0deg, #150e28, #150e28),
     linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04));
@@ -170,11 +170,54 @@ img {
   user-select: none;
   -webkit-user-drag: none;
 }
-@media screen and (min-width: 1440px) {
+/* MOBILE RESPONSIVENESS FOR CIRCULAR LINEAR BACKGROUND */
+@media screen and (min-width: 1250px) {
+  .linearCircle {
+    left: 12%;
+  }
+}
+@media screen and (min-width: 1340px) {
+  .linearCircle {
+    left: 11.5%;
+  }
+}
+@media screen and (min-width: 1450px) {
+  .linearCircle {
+    left: 11%;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .linearCircle {
+    left: 10.5%;
+  }
+}
+@media screen and (min-width: 1585px) {
+  .linearCircle {
+    left: 10%;
+  }
+}
+@media screen and (min-width: 1675px) {
+  .linearCircle {
+    left: 9%;
+  }
+}
+@media screen and (min-width: 1830px) {
+  .linearCircle {
+    left: 8%;
+  }
+}
+@media screen and (min-width: 2075px) {
   .layout {
-    width: 80%;
-    margin: auto;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 20% !important;
+    padding-right: 20% !important;
+  }
+  .typewriter {
+    padding-right: 10% !important;
+  }
+  .heroStar {
+    margin-left: 25%;
+  }
+  .linearCircle {
+    left: 23%;
   }
 }
