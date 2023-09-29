@@ -20,7 +20,7 @@ const Contact = () => {
     }, 2000);
 
     return () => {
-      clearInterval(shineInterval); 
+      clearInterval(shineInterval);
     };
   }, []);
   const initialValues = {

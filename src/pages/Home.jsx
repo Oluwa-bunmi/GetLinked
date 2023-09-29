@@ -7,12 +7,13 @@ import circular from "../assets/circular.png";
 import { useEffect, useState } from "react";
 import Faq from "../components/Faq";
 import Hero from "../components/Hero";
-import Intro from "../components/Into";
+import Intro from "../components/Intro";
 import Rules from "../components/Rules";
 import Attributes from "../components/Attributes";
 import Rewards from "../components/Rewards";
 import Sponsors from "../components/Sponsors";
 import Policy from "../components/Policy";
+import Footer from "../components/Footer";
 const Home = () => {
   // bg-[#150E28]
   // const [remainingTime, setRemainingTime] = useState(getTimeRemaining());
@@ -96,6 +97,7 @@ const Home = () => {
       <Rewards />
       <Sponsors />
       <Policy />
+      <Footer />
     </>
   );
 };
