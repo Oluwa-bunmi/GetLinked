@@ -28,32 +28,32 @@ const Attributes = () => {
             <span className="block  text-[#D434FE]">Key attributes</span>
           </li>
           <li>
-            <span className="text-secondary">Innovation and Creativity:</span>
+            <span className="text-secondary">Innovation and Creativity: </span>
             Evaluate the uniqueness and creativity of the solution. Consider
             whether it addresses a real-world problem in a novel way or
             introduces innovative features.
           </li>
           <li>
-            <span className="text-secondary">Functionality:</span> Assess how well
+            <span className="text-secondary">Functionality: </span> Assess how well
             the solution works. Does it perform its intended functions
             effectively and without major issues? Judges would consider the
             completeness and robustness of the solution.
           </li>
           <li>
-            <span className="text-secondary">Impact and Relevance:</span>
+            <span className="text-secondary">Impact and Relevance: </span>
             Determine the potential impact of the solution in the real world.
             Does it address a significant problem, and is it relevant to the
             target audience? Judges would assess the potential social, economic,
             or environmental benefits.
           </li>
           <li>
-            <span className="text-secondary">Technical Complexity:</span>
+            <span className="text-secondary">Technical Complexity: </span>
             Evaluate the technical sophistication of the solution. Judges would
             consider the complexity of the code, the use of advanced
             technologies or algorithms, and the scalability of the solution.
           </li>
           <li>
-            <span className="text-secondary">Adherence to Hackathon Rules:</span>
+            <span className="text-secondary">Adherence to Hackathon Rules: </span>
             Judges will Ensure that the team adhered to the rules and guidelines
             of the hackathon, including deadlines, use of specific technologies
             or APIs, and any other competition-specific requirements.

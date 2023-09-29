@@ -57,7 +57,7 @@ const Rewards = () => {
             <img
               src={rewards}
               alt="Hackathon rewards"
-              className="w-[402px] lg:w-[692px]"
+              className="w-[402px] lg:w-[692px] 2xl:w-full"
             />
           </div>
           <div className="flex justify-end mr-[30%]">
