@@ -156,9 +156,9 @@ const Hero = () => {
           />
           <div className="flex">
             <img src={HacktonGuy} alt="Hackathon Guy" />
-            <div className="round absolute right-[76px] top-[336px] md:top-[332px] md:right-[63px]">
+            {/* <div className="round absolute right-[76px] top-[336px] md:top-[332px] md:right-[63px]">
               <img src={circular} alt="Hackathon Glow" className="star" />
-            </div>
+            </div> */}
           </div>
         </section>
       </section>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Policy = () => {
   return (
-    <section className="font-mont grid gap-16 lg:grid-cols-2 items-center bg-cover bg-center bg-secondLens text-white py-16 px-5 md:px-20 layout text-center lg:text-left">
+    <section className="relative font-mont grid gap-16 lg:grid-cols-2 items-center bg-cover bg-center bg-secondLens text-white py-16 px-5 md:px-20 layout text-center lg:text-left">
       <div>
         <div className="lg:hidden flex justify-end">
           <img src={whiteStar} alt="star" className="star w-3" />
@@ -31,7 +31,7 @@ const Policy = () => {
           <img
             src={purpleStar}
             alt="star"
-            className="star hidden lg:block w-5"
+            className="star hidden lg:block w-5 mr-[-17%] object-contain"
           />
         </div>
         <p className="lg:mb-10 text-[12px] md:text-sm">
@@ -84,25 +84,32 @@ const Policy = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full relative flex justify-center lg:justify-start">
+      <div className="w-full flex justify-center lg:justify-start">
         <img
           src={policyVector}
           alt="policyVector"
           className="relative w-[300px] lg:w-full"
         />
-        {/* <img src={purpleStar} alt="star" className="star w-3 absolute lg:w-5" /> */}
         <img
           src={whiteStar}
           alt="star"
-          className="star w-3 absolute lg:w-5 top-[18%] right-[34%] lg:right-[20%]"
+          className="star w-3 lg:w-5 absolute sm:bottom-[32%] sm:right-[39%] bottom-[34%] right-[33%] lg:right-[18%] lg:bottom-[68%] 2xl:bottom-[77%] 2xl:right-[18%] policyStar"
         />
         <img
           src={purpleStar}
           alt="star"
-          className="star w-3 absolute lg:w-5 bottom-[34%] left-[41%] lg:left-[30%]"
+          className="star w-3 absolute lg:w-5 left-[12%] bottom-[31%] sm:bottom-[32%] sm:left-[27%] lg:hidden"
         />
-        {/* <img src={whiteStar} alt="star" className="star w-3 absolute lg:w-5" />
-        <img src={whiteStar} alt="star" className="star w-3 absolute lg:w-5" /> */}
+        <img
+          src={whiteStar}
+          alt="star"
+          className="star w-3 absolute lg:w-5 bottom-[12%] left-[23%] sm:left-[36%] lg:left-[60%] lg:bottom-[34%]"
+        />
+        <img
+          src={whiteStar}
+          alt="star"
+          className="star w-3 absolute lg:w-5 bottom-[10%] left-[74%] md:left-[68%] lg:bottom-[30%] lg:left-[91%] 2xl:left-[94%] 2xl:bottom-[23%] privacyStar"
+        />
       </div>
     </section>
   );
