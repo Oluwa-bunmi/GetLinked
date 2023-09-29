@@ -12,6 +12,7 @@ import Rules from "../components/Rules";
 import Attributes from "../components/Attributes";
 import Rewards from "../components/Rewards";
 import Sponsors from "../components/Sponsors";
+import Policy from "../components/Policy";
 const Home = () => {
   // bg-[#150E28]
   // const [remainingTime, setRemainingTime] = useState(getTimeRemaining());
@@ -94,6 +95,7 @@ const Home = () => {
       </section> */}
       <Rewards />
       <Sponsors />
+      <Policy />
     </>
   );
 };
