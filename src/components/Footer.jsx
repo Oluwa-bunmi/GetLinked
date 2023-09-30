@@ -6,10 +6,11 @@ import { FiPhoneCall } from "react-icons/fi";
 import { HiLocationMarker } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import purpleStar from "../assets/purpleStar.png";
+import whiteStar from "../assets/whiteStar.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#100B20] text-sm py-16 layout relative px-5 md:px-20 text-white font-mont">
+    <footer className="bg-[#100B20] text-[12px] md:text-sm py-16 layout relative px-5 md:px-20 text-white font-mont">
       <section className="gap-10 grid lg:grid-cols-4">
         <div className="lg:col-span-2 flex flex-col justify-between">
           <div>
@@ -73,7 +74,10 @@ const Footer = () => {
           </li>
           <li className="flex gap-4 items-center  mb-3">
             <HiLocationMarker size={25} />
-            27,Alara Street Yaba 100012 Lagos State
+            27,Alara Street <br /> Yaba 100012 <br /> Lagos State
+          </li>
+          <li className="lg:flex justify-end hidden">
+            <img src={whiteStar} alt="star" className="star w-5" />
           </li>
         </ul>
       </section>
@@ -81,6 +85,16 @@ const Footer = () => {
         <img src={purpleStar} alt="star" className="star w-3 lg:w-5" />
       </div>
       <p className="text-center">All rights reserved. © getlinked Ltd.</p>
+      <img
+        src={whiteStar}
+        alt="star"
+        className="star w-3 lg:w-5 absolute top-[19%] left-[1%] md:top-[17%] md:left-[5%] lg:top-[30%] lg:left-[3%] 2xl:left-[1%] footerStar"
+      />
+      <img
+        src={whiteStar}
+        alt="star"
+        className="star w-5 hidden absolute lg:block top-[17%] right-[31%] footerSecondStar"
+      />
     </footer>
   );
 };

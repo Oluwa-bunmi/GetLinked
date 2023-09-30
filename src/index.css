@@ -220,11 +220,17 @@ img {
   .linearCircle {
     left: 23%;
   }
-  .privacyStar{
+  .privacyStar {
     bottom: 22% !important;
     left: 80% !important;
   }
-  .policyStar{
+  .policyStar {
     right: 26% !important;
+  }
+  .footerStar {
+    left: 18.5% !important;
+  }
+  .footerSecondStar {
+    right: 39%;
   }
 }
