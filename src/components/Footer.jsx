@@ -37,8 +37,11 @@ const Footer = () => {
           <li className=" mb-3">
             <Link to="">Overview</Link>
           </li>
-          <li className=" mb-3">
+          <li className="mb-0 lg:mb-3">
             <Link to="">Timeline</Link>
+          </li>
+          <li className="flex justify-center lg:hidden">
+            <img src={whiteStar} alt="star" className="star w-3" />
           </li>
           <li className=" mb-3">
             <Link to="">FAQs</Link>
@@ -47,7 +50,7 @@ const Footer = () => {
             <Link to="">Register</Link>
           </li>
           <li className="flex gap-4 items-center">
-            Follow us
+            <p className="text-primary"> Follow us</p>
             <span className="flex gap-3">
               <Link to="">
                 <BsInstagram />
@@ -68,9 +71,12 @@ const Footer = () => {
           <li className="text-[16px] text-primary font-semibold mb-3">
             Contact Us
           </li>
-          <li className="flex gap-4 items-center  mb-3">
+          <li className="flex gap-4 items-center mb-0 lg:mb-3">
             <FiPhoneCall size={20} />
             +234 6707653444
+          </li>
+          <li className="flex justify-end lg:hidden">
+            <img src={whiteStar} alt="star" className="star w-3" />
           </li>
           <li className="flex gap-4 items-center  mb-3">
             <HiLocationMarker size={25} />
