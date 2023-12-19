@@ -93,13 +93,13 @@ const Navbar = () => {
 
             <ul className="flex gap-6 flex-col pl-12 menuBg h-screen pt-16">
               <li onClick={handleNav}>
-                <NavLink>Timeline</NavLink>
+                <a href="#timeline">Timeline</a>
               </li>
               <li onClick={handleNav}>
-                <NavLink>Overview</NavLink>
+                <a href="#overview">Overview</a>
               </li>
               <li onClick={handleNav}>
-                <NavLink>FAQs</NavLink>
+                <a href="#faq">FAQs</a>
               </li>
               <li onClick={handleNav}>
                 <NavLink to="/contact-us">Contact</NavLink>
