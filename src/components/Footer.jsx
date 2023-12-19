@@ -34,20 +34,20 @@ const Footer = () => {
           <li className="text-[16px] text-primary font-semibold mb-3">
             Useful Links
           </li>
-          <li className=" mb-3">
-            <Link to="">Overview</Link>
+          <li className="hover:text-primary mb-3">
+            <a href="#overview">Overview</a>
           </li>
-          <li className="mb-0 lg:mb-3">
-            <Link to="">Timeline</Link>
+          <li className="hover:text-primary mb-0 lg:mb-3">
+            <a href="#timeline">Timeline</a>
           </li>
           <li className="flex justify-center lg:hidden">
             <img src={whiteStar} alt="star" className="star w-3" />
           </li>
-          <li className=" mb-3">
-            <Link to="">FAQs</Link>
+          <li className="hover:text-primary mb-3">
+            <a href="#faq">FAQs</a>
           </li>
-          <li className="mb-3">
-            <Link to="">Register</Link>
+          <li className="hover:text-primary mb-3">
+            <Link to="/register">Register</Link>
           </li>
           <li className="flex gap-4 items-center">
             <p className="text-primary"> Follow us</p>

@@ -2,7 +2,7 @@ import purpleStar from "../assets/purpleStar.png";
 import HacktonIdea from "../assets/hackathon_idea.png";
 const Intro = () => {
   return (
-    <section className="text-white layout bg-primaryGradient grid gap-16 lg:grid-cols-2 py-8 items-center border-y border-[#ffffff2e] px-5 md:px-20">
+    <section id="overview" className="text-white layout bg-primaryGradient grid gap-16 lg:grid-cols-2 py-8 items-center border-y border-[#ffffff2e] px-5 md:px-20">
       <div className="flex justify-center lg:justify-start gap-10 items-start">
         <img
           src={purpleStar}

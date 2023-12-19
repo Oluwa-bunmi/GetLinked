@@ -9,6 +9,7 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+
   const changeColor = () => {
     if (window.scrollY >= 75) {
       setColor(true);
@@ -31,22 +32,28 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
           <ul className="flex gap-10 items-center">
             <li>
-              <NavLink className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+              <a
+                href="#timeline"
+                className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all"
+              >
                 Timeline
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all">
+              <a
+                href="#overview"
+                className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all"
+              >
                 Overview
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink
-                to="/#faq"
+              <a
+                href="#faq"
                 className="hover:text-transparent hover:bg-buttonGradient hover:bg-clip-text transition-all"
               >
                 FAQs
-              </NavLink>
+              </a>
             </li>
             <li>
               <NavLink
@@ -85,22 +92,20 @@ const Navbar = () => {
             </div>
 
             <ul className="flex gap-6 flex-col pl-12 menuBg h-screen pt-16">
-              <li>
+              <li onClick={handleNav}>
                 <NavLink>Timeline</NavLink>
               </li>
-              <li>
+              <li onClick={handleNav}>
                 <NavLink>Overview</NavLink>
               </li>
-              <li>
+              <li onClick={handleNav}>
                 <NavLink>FAQs</NavLink>
               </li>
-              <li>
+              <li onClick={handleNav}>
                 <NavLink to="/contact-us">Contact</NavLink>
               </li>
-              <Link to="/register">
-                <button
-                  className="buttonGradient rounded-[4px] w-[172px] h-[53px]"
-                >
+              <Link to="/register" onClick={handleNav}>
+                <button className="buttonGradient rounded-[4px] w-[172px] h-[53px]">
                   Register
                 </button>
               </Link>

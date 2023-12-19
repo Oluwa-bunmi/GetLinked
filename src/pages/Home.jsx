@@ -72,7 +72,7 @@ const Home = () => {
           </div> */}
       </section>
       {/* <Practice /> */}
-      {/* <Timeline /> */}
+      <Timeline />
       {/* <section className="layout font-mont text-white bg-primaryGradient py-8 px-5 md:px-20 layout">
         <h2 className="font-bold text-[32px] clash text-center">Timeline</h2>
         <p className="text-sm text-center">

@@ -7,10 +7,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .see {
-  background: linear-gradient(180deg, #903aff 0%, #ff26b9 100%);
-} */
-
+*{
+  scroll-behavior: smooth;
+}
+a:active {
+  color: transparent !important;
+  background: linear-gradient(270deg, #903aff, #fe34b9) !important;
+  background-clip: text !important;
+}
 .buttonGradient {
   background: linear-gradient(
     270deg,
@@ -61,9 +65,7 @@
 .star {
   animation: shine 2s infinite;
 }
-/* .star {
-  animation: colorChange 1.5s infinite alternate;
-} */
+
 .registerShadow {
   box-shadow: 4px 4px 4px 8px #00000040;
 }
@@ -161,11 +163,7 @@ label {
     linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04));
 }
 
-.active {
-  color: transparent;
-  background: linear-gradient(270deg, #903aff, #fe34b9);
-  background-clip: text;
-}
+
 img {
   user-select: none;
   -webkit-user-drag: none;
