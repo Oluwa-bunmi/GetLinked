@@ -10,7 +10,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   const changeColor = () => {
-    if (window.scrollY >= 76) {
+    if (window.scrollY >= 75) {
       setColor(true);
     } else {
       setColor(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeColor);
   return (
-    <nav className="fixed bg-transparent border-b border-[#ffffff2e] top-0 h-[76px] lg:h-[90px] left-0 z-[100] ease-in duration-300 w-full overflow-hidden">
+    <nav className="fixed bg-transparent border-b border-[#ffffff2e] top-0 h-[70px] lg:h-[80px] left-0 z-[100] ease-in duration-300 w-full overflow-hidden">
       <div
         className={`font-mont flex px-5 justify-between
        items-center md:px-20 h-full layout ${
@@ -26,7 +26,7 @@ const Navbar = () => {
        }`}
       >
         <Link to="/">
-          <img src={logo} alt={logo} className="w-[150px] select-none" />
+          <img src={logo} alt={logo} className="w-[150px]" />
         </Link>
         <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
           <ul className="flex gap-10 items-center">
@@ -97,24 +97,17 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact-us">Contact</NavLink>
               </li>
-              <button
-                onClick={() => {
-                  window.location.href = "/register";
-                }}
-                className="buttonGradient rounded-[4px] w-[172px] h-[53px]"
-              >
-                Register
-              </button>
+              <Link to="/register">
+                <button
+                  className="buttonGradient rounded-[4px] w-[172px] h-[53px]"
+                >
+                  Register
+                </button>
+              </Link>
             </ul>
           </div>
         </div>
       </div>
-      {/* <a
-        class="text-base font-normal "
-        href="/#faqs"
-      >
-        FAQs
-      </a> */}
     </nav>
   );
 };

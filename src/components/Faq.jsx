@@ -54,7 +54,7 @@ const Faq = () => {
           <span className="block text-[#D434FE]"> Question</span>
         </h1>
         <p className="text-[14px] py-5 font-mont">
-          We got answers to the questions that you might want to ask about{" "}
+          We got answers to the questions that you might want to ask about
           <br />
           <b>getlinked Hackathon 1.0 </b>
         </p>

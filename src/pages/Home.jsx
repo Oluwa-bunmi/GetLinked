@@ -14,17 +14,19 @@ import Rewards from "../components/Rewards";
 import Sponsors from "../components/Sponsors";
 import Policy from "../components/Policy";
 import Footer from "../components/Footer";
+import Timeline from "../components/Timeline";
+import Practice from "../components/Practice";
 const Home = () => {
   // bg-[#150E28]
   // const [remainingTime, setRemainingTime] = useState(getTimeRemaining());
-  const [isShining, setIsShining] = useState(false);
+ 
 
   return (
     <>
       {/* <div className="absolute z-[-1] top-[-450px] left-[-70px]">
             <img src={lens} alt="Hackathon Lens" />
           </div> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Intro />
       <Rules />
@@ -69,6 +71,8 @@ const Home = () => {
 
           </div> */}
       </section>
+      {/* <Practice /> */}
+      {/* <Timeline /> */}
       {/* <section className="layout font-mont text-white bg-primaryGradient py-8 px-5 md:px-20 layout">
         <h2 className="font-bold text-[32px] clash text-center">Timeline</h2>
         <p className="text-sm text-center">

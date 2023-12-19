@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { registerSchema } from "../schemas";
-import axios from "axios";
 import designer from "../assets/graphicDesigner.png";
 import movement from "../assets/movement.png";
 import logo from "../assets/getlinked.png";
@@ -9,68 +8,52 @@ import { Link, NavLink } from "react-router-dom";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Axios } from "../config";
+import { request } from "../lib/Request";
 const Register = () => {
   const [categoryOptions, setCategoryOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => {
-    setIsOpen(true);
-    document.body.style.overflow = "hidden";
-  };
   // Fetch the category options from the API
   useEffect(() => {
-    axios
-      .get("https://backend.getlinked.ai/hackathon/categories-list")
-      .then((response) => {
-        setCategoryOptions(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching category options:", error);
-      });
+    getCategories();
   }, []);
   const initialValues = {
-    teams_name: "",
+    team_name: "",
     email: "",
     phone_number: "",
     project_topic: "",
     group_size: "",
-    category: 1,
+    category: "",
     agreement: false,
   };
-  const onSubmit = async (values, actions) => {
+  const getCategories = async () => {
     try {
-      const baseUrl = "https://backend.getlinked.ai";
-      const payload = {
-        email: values.email,
-        phone_number: values.phone_number,
-        team_name: values.teams_name,
-        group_size: values.group_size,
-        project_topic: values.project_topic,
-        category: values.category,
-        privacy_policy_accepted: values.agreement,
-      };
-      const response = await axios.post(
-        `${baseUrl}/hackathon/registration`,
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 201) {
-        console.log("Registration successful!");
-        openModal();
-        actions.resetForm();
-      } else {
-        console.error("Registration failed with status code:", response.status);
-      }
+      const res = await Axios.get(request.category);
+      setCategoryOptions(res.data);
     } catch (error) {
-      console.error("An error occurred during registration:", error);
-      toast.error("Network Error", {
-        position: toast.POSITION.BOTTOM_RIGHT,
+      toast.error("An error occurred. Please try again later.", {
+        position: "top-right",
       });
     }
+  };
+  const onSubmit = async (payload, actions) => {
+    try {
+      const res = await Axios.post(request.registration, payload);
+      console.log(res);
+      if (res.status === 201) {
+        setIsOpen(true);
+      } else {
+        toast.error("Registration unsuccessful. Please try again.", {
+          position: "top-right",
+        });
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.", {
+        position: "top-right",
+      });
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
   };
   const {
     values,
@@ -87,15 +70,12 @@ const Register = () => {
   });
   return (
     <>
-      <section className={isOpen ? "blur" : ""}>
+      <section>
         {/* Mobile Nav */}
-        <div
-          className="lg:hidden primaryGradient px-5 md:px-20 py-8 fixed w-full z-[1000]"
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        >
-          <img src={logo} alt={logo} className="w-[150px] select-none" />
+        <div className="lg:hidden primaryGradient px-5 md:px-20 py-8 fixed w-full z-[1000]">
+          <Link to="/">
+            <img src={logo} alt={logo} className="w-[150px]" />
+          </Link>
         </div>
         {/* Desktop Nav */}
         <nav className="hidden primaryGradient fixed w-full z-[1000] px-5 md:px-20  font-mont lg:flex justify-between items-center pt-8 pb-4">
@@ -117,15 +97,6 @@ const Register = () => {
                 <NavLink to="/contact-us">Contact</NavLink>
               </li>
             </ul>
-            {/* <button
-            onClick={() => {
-              window.location.href = "/register";
-            }}
-            className="rounded-[4px] w-[172px] h-[53px] border"
-          >
-            Register
-          </button> */}
-
             <button className="w-[172px] h-[53px] before:duration-300 before:transition before:ease-in-out rounded hover:opacity-80 hover:before:opacity-80 bg-buttonGradient before:inset-[2px] before:absolute relative before:bg-[#150E28] outline-none">
               <span className="relative">Register</span>
             </button>
@@ -151,24 +122,24 @@ const Register = () => {
                 </h1>
                 <div className="grid lg:grid-cols-2 items-center gap-5">
                   <div>
-                    <label htmlFor="teams_name">Team's Name</label> <br />
+                    <label htmlFor="team_name">Team's Name</label> <br />
                     <input
                       type="text"
-                      name="teams_name"
-                      id="teams_name"
-                      value={values.teams_name}
+                      name="team_name"
+                      id="team_name"
+                      value={values.team_name}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       placeholder="Enter the name of your group"
                       className={
-                        errors.teams_name && touched.teams_name
+                        errors.team_name && touched.team_name
                           ? "border !border-red-500"
                           : ""
                       }
                     />
-                    {errors.teams_name && touched.teams_name && (
+                    {errors.team_name && touched.team_name && (
                       <p className="text-red-500 text-sm font-medium">
-                        {errors.teams_name}
+                        {errors.team_name}
                       </p>
                     )}
                   </div>
@@ -247,6 +218,7 @@ const Register = () => {
                     <br />
                     <select
                       name="category"
+                      id="category"
                       value={values.category}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -256,6 +228,10 @@ const Register = () => {
                           : ""
                       }
                     >
+                      <option value="" className="text-black">
+                        Select category
+                      </option>
+
                       {categoryOptions.map((option) => (
                         <option
                           key={option.id}
@@ -277,6 +253,7 @@ const Register = () => {
                     <br />
                     <select
                       name="group_size"
+                      id="group_size"
                       value={values.group_size}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -358,7 +335,7 @@ const Register = () => {
           </div>
         </section>
       </section>
-      <Modal isOpen={isOpen} />
+      {isOpen && <Modal />}
     </>
   );
 };

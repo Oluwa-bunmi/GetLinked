@@ -15,6 +15,7 @@ export default {
       colors: {
         primary: "#D434FE",
         secondary: "#FF26B9",
+        modalBg: "rgba(21, 14, 40, 0.93)",
       },
       fontFamily: {
         unica: "'Unica One', cursive",

@@ -46,22 +46,22 @@ const Footer = () => {
           <li className=" mb-3">
             <Link to="">FAQs</Link>
           </li>
-          <li className=" mb-3">
+          <li className="mb-3">
             <Link to="">Register</Link>
           </li>
           <li className="flex gap-4 items-center">
             <p className="text-primary"> Follow us</p>
             <span className="flex gap-3">
-              <Link to="">
+              <Link to="https://www.instagram.com/getlinked.ai">
                 <BsInstagram />
               </Link>
-              <Link to="">
+              <Link to="https://twitter.com/getLinkedai">
                 <RiTwitterXFill />
               </Link>
-              <Link to="">
+              <Link to="https://web.facebook.com/getLinkedai">
                 <FaFacebookF />
               </Link>
-              <Link to="">
+              <Link to="https://www.linkedin.com/company/getlinked-ai/">
                 <FaLinkedinIn />
               </Link>
             </span>

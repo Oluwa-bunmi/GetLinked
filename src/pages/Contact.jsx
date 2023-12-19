@@ -1,65 +1,49 @@
 import Navbar from "../components/Navbar";
 import { useFormik } from "formik";
-import { registerSchema } from "../schemas";
-import { PiStarFourFill } from "react-icons/pi";
+import { contactSchema } from "../schemas";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import back from "../assets/back.png";
 import logo from "../assets/getlinked.png";
+import purpleStar from "../assets/purpleStar.png";
+import whiteStar from "../assets/whiteStar.png";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect, useState } from "react";
+import { Axios } from "../config";
+import { request } from "../lib/Request";
 
 const Contact = () => {
-  const [isShining, setIsShining] = useState(false);
-  useEffect(() => {
-    const shineInterval = setInterval(() => {
-      setIsShining((prevIsShining) => !prevIsShining);
-    }, 2000);
-
-    return () => {
-      clearInterval(shineInterval);
-    };
-  }, []);
   const initialValues = {
     first_name: "",
     email: "",
     message: "",
     phone_number: "",
   };
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (payload, actions) => {
     try {
-      const baseUrl = "https://backend.getlinked.ai";
-      const payload = {
-        email: values.email,
-        phone_number: values.phone_number,
-        first_name: values.first_name,
-        message: values.message,
-      };
-      const response = await axios.post(
-        `${baseUrl}/hackathon/contact-form`,
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
+      const res = await Axios.post(request.contact, payload);
+      console.log(res);
+      if (res.status === 201) {
+        toast.success("Message sent successfully!", {
+          position: "top-right",
+          style: {
+            zIndex: "100",
           },
-        }
-      );
-
-      if (response.status === 201) {
-        // console.log("Registration successful!");
-        actions.resetForm();
+        });
       } else {
-        console.error("Registration failed with status code:", response.status);
+        toast.error("Message sending unsuccessful. Please try again.", {
+          position: "top-right",
+        });
       }
     } catch (error) {
-      console.error("An error occurred during registration:", error);
-      toast.error("Network Error", {
-        position: toast.POSITION.BOTTOM_RIGHT,
+      toast.error("An error occurred. Please try again later.", {
+        position: "top-right",
       });
     }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
   };
   const {
     values,
@@ -71,66 +55,24 @@ const Contact = () => {
     isSubmitting,
   } = useFormik({
     initialValues,
-    validationSchema: registerSchema,
+    validationSchema: contactSchema,
     onSubmit,
   });
   return (
     <>
-      <div
-        className="lg:hidden primaryGradient px-5 md:px-20 py-8 fixed w-full z-[1000]"
-        onClick={() => {
-          window.location.href = "/";
-        }}
-      >
-        <img src={back} alt="go home" />
-      </div>
-      {/* Desktop Nav */}
-      <nav className="hidden primaryGradient fixed w-full z-[1000] px-5 md:px-20  font-mont lg:flex justify-between items-center pt-8 pb-4">
-        <Link to="/">
-          <img src={logo} alt={logo} className="w-[150px] select-none" />
-        </Link>
-        <div className="hidden lg:flex gap-28 text-[16px] text-white items-center">
-          <ul className="flex gap-10 items-center">
-            <li>
-              <NavLink>Timeline</NavLink>
-            </li>
-            <li>
-              <NavLink>Overview</NavLink>
-            </li>
-            <li>
-              <NavLink>FAQs</NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact-us">Contact</NavLink>
-            </li>
-          </ul>
-          <button
-            onClick={() => {
-              window.location.href = "/register";
-            }}
-            className="buttonGradient rounded-[4px] w-[172px] h-[53px] border-none"
-          >
-            Register
-          </button>
-        </div>
-      </nav>
-      <section className="bg-secondLens bg-cover pt-32 px-5 md:px-36 xl:pt-40 pb-8">
+      <section className="layout relative bg-secondLens bg-cover bg-center pt-32 px-5 md:px-20 2xl:px-32 lg:pt-40 pb-8">
         <section className="flex flex-col gap-3">
-          <div className="flex justify-center xl:justify-end">
-            <PiStarFourFill
-              className={`star xl:text-white text-[#D434FE] text-[18px] xl:text-xl ${
-                isShining ? "shining" : ""
-              }`}
-            />
+          <div className="flex justify-center lg:justify-end">
+            <img src={whiteStar} alt="star" className="star w-3 lg:w-5" />
           </div>
-          <PiStarFourFill
-            className={`star text-[#D434FE] text-xl hidden xl:block ${
-              isShining ? "shining" : ""
-            }`}
+          <img
+            src={purpleStar}
+            alt="star"
+            className="star w-5 hidden lg:block"
           />
 
-          <div className="grid xl:grid-cols-2 items-center">
-            <div className="hidden xl:flex gap-5 flex-col text-[16px] text-white font-mont">
+          <div className="grid lg:grid-cols-2 items-center">
+            <div className="hidden lg:flex gap-5 flex-col text-[16px] text-white font-mont">
               <h1 className="clash text-[32px] text-[#D434FE]">Get in touch</h1>
               <p>Contact Information</p>
               <p>
@@ -143,32 +85,44 @@ const Contact = () => {
               <div>
                 <p>Share on</p>
                 <div className="flex gap-3 items-center">
-                  <BsInstagram />
-                  <FaFacebookF />
-                  <RiTwitterXFill />
-                  <FaLinkedinIn />
+                  <Link to="https://www.instagram.com/getlinked.ai">
+                    <BsInstagram />
+                  </Link>
+                  <Link to="https://web.facebook.com/getLinkedai">
+                    <FaFacebookF />
+                  </Link>
+                  <Link to="https://twitter.com/getLinkedai">
+                    <RiTwitterXFill />
+                  </Link>
+                  <Link to="https://www.linkedin.com/company/getlinked-ai/">
+                    <FaLinkedinIn />
+                  </Link>
                 </div>
               </div>
             </div>
 
             <div>
-              <div className="md:shadow-regshadow relative xl:bg-[#ffffff08] rounded-[12px]">
+              <div className="md:shadow-regshadow relative lg:bg-[#ffffff08] rounded-[12px]">
                 <form
                   onSubmit={handleSubmit}
-                  className="text-white px-5 md:px-12 pt-0 pb-12 xl:pt-12"
+                  className="text-white px-5 md:px-16 lg:px-12 pt-0 pb-12 lg:pt-12"
                 >
                   <div className="flex items-center justify-between">
                     <div>
                       <h1 className="text-xl clash text-[#D434FE]">
                         Questions or need assistance?
                       </h1>
-                      <h1 className="text-xl clash text-[#D434FE] pt-2 pb-2 xl:pb-5">
+                      <h1 className="text-xl clash text-[#D434FE] pt-2 pb-2 lg:pb-5">
                         Let us know about it!
                       </h1>
                     </div>
-                    <PiStarFourFill className="text-white text-xl xl:text-[26px] xl:hidden" />
+                    <img
+                      src={whiteStar}
+                      alt="star"
+                      className="star lg:hidden w-3"
+                    />
                   </div>
-                  <p className="xl:hidden font-mont pb-5 text-[12px]">
+                  <p className="lg:hidden font-mont pb-5 text-[12px]">
                     Email us below to any question related to our event
                   </p>
                   <div className="flex flex-col gap-6">
@@ -194,7 +148,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <input
-                        type="number"
+                        type="text"
                         name="phone_number"
                         value={values.phone_number}
                         onChange={handleChange}
@@ -263,7 +217,7 @@ const Contact = () => {
                         Submit
                       </button>
                     </div>
-                    <div className="xl:hidden gap-1 font-mont mt-4 flex justify-center flex-col items-center">
+                    <div className="lg:hidden gap-1 font-mont mt-4 flex justify-center flex-col items-center">
                       <p className="text-[12px] text-[#D434FE]">Share on</p>
                       <div className="flex gap-3 items-center">
                         <Link to="https://www.instagram.com/getlinked.ai">
@@ -275,7 +229,7 @@ const Contact = () => {
                         <Link to="https://web.facebook.com/getLinkedai">
                           <FaFacebookF />
                         </Link>
-                        <Link to="https://www.linkedin.com/getLinkedai">
+                        <Link to="https://www.linkedin.com/company/getlinked-ai/">
                           <FaLinkedinIn />
                         </Link>
                       </div>
@@ -283,15 +237,15 @@ const Contact = () => {
                   </div>
                 </form>
               </div>
-              <PiStarFourFill
-                className={`star absolute -bottom-[12%] xl:-bottom-[7%] z-10 left-[89.5%] xl:left-[49.5%] text-[18px] xl:text-xl text-[#D434FE] ${
-                  isShining ? "shining" : ""
-                }`}
+              <img
+                src={purpleStar}
+                alt="star"
+                className="star absolute w-3 lg:w-5 bottom-[20%] left-[10%] md:left-[19%] lg:bottom-[18%] lg:left-[49.5%]"
               />
-              <PiStarFourFill
-                className={`star absolute xl:right-[5%] -bottom-[22%] right-[84%] xl:-bottom-[26%] text-[18px] xl:text-xl text-white ${
-                  isShining ? "shining" : ""
-                }`}
+              <img
+                src={whiteStar}
+                alt="star"
+                className="star w-3 lg:w-5 absolute bottom-[29%] right-[3%] md:bottom-[29%] md:right-[12%] lg:bottom-[4%] lg:right-[4%] contactWhiteStar"
               />
             </div>
           </div>

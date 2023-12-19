@@ -233,4 +233,7 @@ img {
   .footerSecondStar {
     right: 39%;
   }
+  .contactWhiteStar{
+    right: 19% !important;
+  }
 }
