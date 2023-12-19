@@ -14,9 +14,9 @@ const Footer = () => {
       <section className="gap-10 grid lg:grid-cols-4">
         <div className="lg:col-span-2 flex flex-col justify-between">
           <div>
-            <Link to="/">
+            <a href="#hero">
               <img src={logo} alt="logo" className="w-[150px]" />
-            </Link>
+            </a>
             <p className="leading-[21px] mt-3 mb-8 lg:mb-0">
               Getlinked Tech Hackathon is a technology innovation program
               established by a group of organizations with the aim of showcasing
@@ -24,10 +24,12 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex items-center py-2">
-            <Link className="pr-2"> Terms of Use</Link>
-            <Link className="pl-2 border-l-[3px] border-primary">
+            <a href="#policy" className="pr-2">
+              Terms of Use
+            </a>
+            <a href="#policy" className="pl-2 border-l-[3px] border-primary">
               Privacy Policy
-            </Link>
+            </a>
           </div>
         </div>
         <ul>

@@ -59,7 +59,7 @@ const Hero = () => {
     return number < 10 ? `0${number}` : number;
   }
   return (
-    <section className="text-center lg:text-left text-white font-mont">
+    <section id="hero" className="text-center lg:text-left text-white font-mont">
       <section className="bg-firstLens bg-cover bg-center">
         <div className="flex sm:gap-[6px] lg:gap-0 items-start pt-36 justify-center lg:justify-end lg:pr-[2%] mb-4 typewriter">
           <h1 className="italic font-bold text-[14px] sm:text-[19px] md:text-[21px] lg:text-[29px]">

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Policy = () => {
   return (
-    <section className="relative font-mont grid gap-16 lg:grid-cols-2 items-center bg-cover bg-center bg-secondLens text-white py-16 px-5 md:px-20 layout text-center lg:text-left">
+    <section id="policy" className="relative font-mont grid gap-16 lg:grid-cols-2 items-center bg-cover bg-center bg-secondLens text-white py-16 px-5 md:px-20 layout text-center lg:text-left">
       <div>
         <div className="lg:hidden flex justify-end">
           <img src={whiteStar} alt="star" className="star w-3" />
