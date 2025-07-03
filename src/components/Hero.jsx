@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import HacktonGuy from "../assets/hackathon_guy.png";
 import HacktonChain from "../assets/hackathon_chain.png";
 import HacktonCreative from "../assets/hackathon_creative.png";
@@ -7,7 +9,7 @@ import HacktonStar from "../assets/hackathon_star.png";
 import circular from "../assets/circular.png";
 import whiteStar from "../assets/whiteStar.png";
 import "../assets/fonts/fonts.css";
-import { Link } from "react-router-dom";
+
 
 const Hero = () => {
   const [remainingTime, setRemainingTime] = useState(getTimeRemaining());
@@ -22,7 +24,7 @@ const Hero = () => {
   }, []);
   // Calculate the time remaining until November 18
   function getTimeRemaining() {
-    const targetDate = new Date("2023-11-18");
+    const targetDate = new Date("2025-11-18");
     const currentDate = new Date();
     const timeRemaining = targetDate - currentDate;
 
@@ -59,7 +61,10 @@ const Hero = () => {
     return number < 10 ? `0${number}` : number;
   }
   return (
-    <section id="hero" className="text-center lg:text-left text-white font-mont">
+    <section
+      id="hero"
+      className="text-center lg:text-left text-white font-mont"
+    >
       <section className="bg-firstLens bg-cover bg-center">
         <div className="flex sm:gap-[6px] lg:gap-0 items-start pt-36 justify-center lg:justify-end lg:pr-[2%] mb-4 typewriter">
           <h1 className="italic font-bold text-[14px] sm:text-[19px] md:text-[21px] lg:text-[29px]">
@@ -91,46 +96,66 @@ const Hero = () => {
 
         <section className="grid layout gap-16 relative lg:grid-cols-2 z-[10] px-5 md:px-20">
           <div className="flex flex-col justify-center">
-            <div className="flex justify-center lg:justify-start items-end text-[28px] md:text-[43px] 2xl:text-[70px] font-bold clash">
-              <h1>getlinked Te</h1>
-              <span className="flex flex-col-reverse items-center justify-center">
-                c
-                <img
-                  src={HacktonCreative}
-                  alt="Hackathon Creative"
-                  className="w-[18px] md:w-[34px] 2xl:w-[44px] -mb-4 md:-mb-6 2xl:-mb-8 lg:object-contain"
-                />
-              </span>
-              <h1>h</h1>
-            </div>
-            <div className="flex justify-center lg:justify-start items-center gap-2">
-              <h1 className="text-[28px] md:text-[43px] sm:leading-[61px] 2xl:text-[70px] clash leading-[39px] lg:leading-[69px] 2xl:leading-[90px]">
-                Hackathon <span className="text-[#D434FE]">1.0</span>
-              </h1>
-              <div className="flex">
-                <img
-                  src={HacktonChain}
-                  alt="Hackathon Chain"
-                  className="w-[32px] lg:w-[53px]"
-                />
-                <img
-                  src={HacktonStar}
-                  alt="Hackathon Star"
-                  className="w-[32px] lg:object-contain"
-                />
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ type: "spring", duration: 2 }}
+              viewport={{ once: true }}
+            >
+              <div className="whitespace-nowrap flex justify-center lg:justify-start items-end text-[28px] md:text-[43px] lg:text-[49px] xl:text-[60px] 2xl:text-[70px] font-medium clash sm:leading-[45px] lg:leading-[61px]">
+                <h1>getlinked Te</h1>
+                <span className="flex flex-col-reverse items-center justify-center">
+                  c
+                  <img
+                    src={HacktonCreative}
+                    alt="Hackathon Creative"
+                    className="w-[18px] md:w-[34px] 2xl:w-[44px] -mb-4 md:-mb-6 2xl:-mb-8 lg:object-contain"
+                  />
+                </span>
+                <h1>h</h1>
               </div>
-            </div>
-            <p className="text-[13px] lg:text-xl text-center lg:text-left">
+
+              <div className="flex justify-center lg:justify-start items-center gap-2 whitespace-nowrap">
+                <h1 className="text-[28px] md:text-[43px] lg:text-[49px] xl:text-[60px] sm:leading-[61px] 2xl:text-[70px] clash leading-[39px] lg:leading-[69px] 2xl:leading-[90px]">
+                  Hackathon <span className="text-[#D434FE]">1.0</span>
+                </h1>
+                <div className="flex">
+                  <img
+                    src={HacktonChain}
+                    alt="Hackathon Chain"
+                    className="w-[32px] lg:w-[53px]"
+                  />
+                  <img
+                    src={HacktonStar}
+                    alt="Hackathon Star"
+                    className="w-[32px] lg:object-contain"
+                  />
+                </div>
+              </div>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", duration: 2 }}
+              viewport={{ once: true }}
+              className="text-[13px] lg:text-xl text-center lg:text-left"
+            >
               Participate in getlinked tech Hackathon 2023 stand a chance to win
               a Big prize
-            </p>
+            </motion.p>
             <Link
               to="/register"
               className="flex justify-center lg:justify-start"
             >
-              <button className="buttonGradient rounded-[4px] w-[152px] lg:w-[172px] h-[53px] mt-10 mb-8">
+              <motion.button
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", duration: 2 }}
+                viewport={{ once: true }}
+                className="buttonGradient rounded-[4px] w-[152px] lg:w-[172px] h-[53px] mt-10 mb-8"
+              >
                 Register
-              </button>
+              </motion.button>
             </Link>
 
             {/* HACKATHON COUNDOWN */}
@@ -154,12 +179,24 @@ const Hero = () => {
             alt="Star"
             className="w-3 lg:hidden block star absolute bottom-[67%] right-[13%] sm:bottom-[76%] md:bottom-[73%] md:right-[29%]"
           />
-          <div className="flex">
-            <img src={HacktonGuy} alt="Hackathon Guy" />
-            {/* <div className="round absolute right-[76px] top-[336px] md:top-[332px] md:right-[63px]">
-              <img src={circular} alt="Hackathon Glow" className="star" />
-            </div> */}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", duration: 3 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img src={HacktonGuy} alt="Hackathon Guy" className="h-full" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", duration: 2 }}
+              viewport={{ once: true }}
+              src={circular}
+              alt="circular"
+              className="absolute top-[-5%] left-[-1%] animate-pulse duration-300"
+            />
+          </motion.div>
         </section>
       </section>
     </section>

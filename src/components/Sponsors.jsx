@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import whiteStar from "../assets/whiteStar.png";
 import purpleStar from "../assets/purpleStar.png";
 import sponsors from "../assets/sponsors.png";
@@ -14,11 +15,19 @@ const Sponsors = () => {
       </p>
       <img
         src={purpleStar}
-        alt="Star"
-        className="hidden lg:block w-5 ml-[10%] star"
+        alt="star"
+        className="hidden lg:block w-5 ml-[10%] animate-pulse"
       />
       <div className="w-full justify-center">
-        <img src={sponsors} alt="sponsors" className="lg:w-full" />
+        <motion.img
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", duration: 2.5 }}
+          viewport={{ once: true }}
+          src={sponsors}
+          alt="sponsors"
+          className="lg:w-full"
+        />
         <img
           src={purpleStar}
           alt="star"
@@ -27,16 +36,16 @@ const Sponsors = () => {
         <img
           src={whiteStar}
           alt="star"
-          className="w-5 star absolute top-[80%] right-[43%] hidden lg:block"
+          className="w-5 animate-pulse absolute top-[80%] right-[43%] hidden lg:block"
         />
         <img
           src={whiteStar}
           alt="star"
-          className="w-3 star absolute lg:hidden bottom-[10%] right-[31%]"
+          className="w-3 animate-pulse absolute lg:hidden bottom-[10%] right-[31%]"
         />
         <img
           src={purpleStar}
-          alt="Star"
+          alt="star"
           className="star w-3 lg:hidden absolute top-[56%] right-[80%] sm:top-[37%] sm:right-[87%] md:right-[82%] md:top-[35%]"
         />
       </div>

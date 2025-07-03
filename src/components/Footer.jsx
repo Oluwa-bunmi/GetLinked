@@ -1,10 +1,10 @@
-import logo from "../assets/getlinked.png";
+import { Link } from "react-router-dom";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FiPhoneCall } from "react-icons/fi";
 import { HiLocationMarker } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import logo from "../assets/getlinked.png";
 import purpleStar from "../assets/purpleStar.png";
 import whiteStar from "../assets/whiteStar.png";
 
@@ -43,7 +43,7 @@ const Footer = () => {
             <a href="#timeline">Timeline</a>
           </li>
           <li className="flex justify-center lg:hidden">
-            <img src={whiteStar} alt="star" className="star w-3" />
+            <img src={whiteStar} alt="star" className="animate-pulse w-3" />
           </li>
           <li className="hover:text-primary mb-3">
             <a href="#faq">FAQs</a>
@@ -78,30 +78,30 @@ const Footer = () => {
             +234 6707653444
           </li>
           <li className="flex justify-end lg:hidden">
-            <img src={whiteStar} alt="star" className="star w-3" />
+            <img src={whiteStar} alt="star" className="animate-pulse w-3" />
           </li>
           <li className="flex gap-4 items-center  mb-3">
             <HiLocationMarker size={25} />
             27,Alara Street <br /> Yaba 100012 <br /> Lagos State
           </li>
           <li className="lg:flex justify-end hidden">
-            <img src={whiteStar} alt="star" className="star w-5" />
+            <img src={whiteStar} alt="star" className="animate-pulse w-5" />
           </li>
         </ul>
       </section>
       <div className="flex justify-center mt-9 mb-5">
-        <img src={purpleStar} alt="star" className="star w-3 lg:w-5" />
+        <img src={purpleStar} alt="star" className="animate-pulse w-3 lg:w-5" />
       </div>
       <p className="text-center">All rights reserved. © getlinked Ltd.</p>
       <img
         src={whiteStar}
         alt="star"
-        className="star w-3 lg:w-5 absolute top-[19%] left-[1%] md:top-[17%] md:left-[5%] lg:top-[30%] lg:left-[3%] 2xl:left-[1%] footerStar"
+        className="animate-pulse w-3 lg:w-5 absolute top-[19%] left-[1%] md:top-[17%] md:left-[5%] lg:top-[30%] lg:left-[3%] 2xl:left-[1%] footerStar"
       />
       <img
         src={whiteStar}
         alt="star"
-        className="star w-5 hidden absolute lg:block top-[17%] right-[31%] footerSecondStar"
+        className="animate-pulse w-5 hidden absolute lg:block top-[17%] right-[31%] footerSecondStar"
       />
     </footer>
   );

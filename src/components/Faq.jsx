@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
-import purpleStar from "../assets/purpleStar.png";
-
+import { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { faq } from "../constants/data";
+import purpleStar from "../assets/purpleStar.png";
+import { motion } from "framer-motion";
+
 
 const Faq = () => {
-  const data = [
-    {
-      question: "Can I work on a project I started before the hackathon?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-    {
-      question: "What happens if I need help during the hackathon?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-    {
-      question: "What happens if I don't have an idea for a project?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-    {
-      question: "Can I join a team or do I have to come with one?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-    {
-      question: "What happens after the hackathon ends",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-    {
-      question: "Can I work on a project I started before the hackathon?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur. Arcu pulvinar mi lacinia vulputate massa felis.",
-    },
-  ];
   const [openKey, setOpenKey] = useState();
   const handleToggle = (key) => {
     setOpenKey(openKey !== key ? key : null);
@@ -47,18 +17,38 @@ const Faq = () => {
         <img
           src={purpleStar}
           alt="Star"
-          className="w-3 lg:w-5 ml-[12%] star mb-2"
+          className="w-3 lg:w-5 ml-[12%] animate-pulse mb-2"
         />
-        <h1 className="leading-[36px] md:leading-[42px] text-xl md:text-[32px] clash font-bold">
-          Frequently Ask
-          <span className="block text-[#D434FE]"> Question</span>
-        </h1>
-        <p className="text-[14px] py-5 font-mont">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 2 }}
+          viewport={{ once: true }}
+          className="leading-[36px] md:leading-[42px] text-xl md:text-[32px] clash font-medium"
+        >
+          Frequently Asked
+          <motion.span
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 2 }}
+            viewport={{ once: true }}
+            className="block text-[#D434FE] font-medium"
+          >
+            Questions
+          </motion.span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 2.5 }}
+          viewport={{ once: true }}
+          className="text-[14px] py-5 font-mont"
+        >
           We got answers to the questions that you might want to ask about
           <br />
           <b>getlinked Hackathon 1.0 </b>
-        </p>
-        {data.map((item, i) => (
+        </motion.p>
+        {faq.map((item, i) => (
           <div
             key={i}
             className="flex font-mont flex-col items-center justify-between p-2 rounded-lg"

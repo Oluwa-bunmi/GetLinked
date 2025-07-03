@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Axios } from "../config";
 import { request } from "../lib/Request";
 const Register = () => {
@@ -30,10 +29,9 @@ const Register = () => {
     try {
       const res = await Axios.get(request.category);
       setCategoryOptions(res.data);
+      console.log(res);
     } catch (error) {
-      toast.error("An error occurred. Please try again later.", {
-        position: "top-right",
-      });
+      console.log(error);
     }
   };
   const onSubmit = async (payload, actions) => {
@@ -43,14 +41,10 @@ const Register = () => {
       if (res.status === 201) {
         setIsOpen(true);
       } else {
-        toast.error("Registration unsuccessful. Please try again.", {
-          position: "top-right",
-        });
+        toast.error("Registration unsuccessful. Please try again.");
       }
     } catch (error) {
-      toast.error("An error occurred. Please try again later.", {
-        position: "top-right",
-      });
+      toast.error(error.message || "An error occurred. Please try again later.");
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
@@ -305,7 +299,7 @@ const Register = () => {
                     htmlFor="agreement"
                     className="cursor-pointer text-[10px] sm:text-[12px]"
                   >
-                    I agreed with the event terms and conditions and privacy
+                    I agree with the event terms and conditions and privacy
                     policy
                   </label>
                   {/* {errors.agreement && touched.agreement && (

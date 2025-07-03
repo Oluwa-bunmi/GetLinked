@@ -26,21 +26,14 @@ const Contact = () => {
       const res = await Axios.post(request.contact, payload);
       console.log(res);
       if (res.status === 201) {
-        toast.success("Message sent successfully!", {
-          position: "top-right",
-          style: {
-            zIndex: "100",
-          },
-        });
+        toast.success("Message sent!");
       } else {
-        toast.error("Message sending unsuccessful. Please try again.", {
+        toast.error("Unsuccessful, try again.", {
           position: "top-right",
         });
       }
     } catch (error) {
-      toast.error("An error occurred. Please try again later.", {
-        position: "top-right",
-      });
+      toast.error("An error occurred. Please try again later.");
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
@@ -68,7 +61,7 @@ const Contact = () => {
           <img
             src={purpleStar}
             alt="star"
-            className="star w-5 hidden lg:block"
+            className="animate-pulse w-5 hidden lg:block"
           />
 
           <div className="grid lg:grid-cols-2 items-center">
@@ -240,12 +233,12 @@ const Contact = () => {
               <img
                 src={purpleStar}
                 alt="star"
-                className="star absolute w-3 lg:w-5 bottom-[20%] left-[10%] md:left-[19%] lg:bottom-[18%] lg:left-[49.5%]"
+                className="animate-pulse absolute w-3 lg:w-5 bottom-[20%] left-[10%] md:left-[19%] lg:bottom-[18%] lg:left-[49.5%]"
               />
               <img
                 src={whiteStar}
                 alt="star"
-                className="star w-3 lg:w-5 absolute bottom-[29%] right-[3%] md:bottom-[29%] md:right-[12%] lg:bottom-[4%] lg:right-[4%] contactWhiteStar"
+                className="animate-pulse w-3 lg:w-5 absolute bottom-[29%] right-[3%] md:bottom-[29%] md:right-[12%] lg:bottom-[4%] lg:right-[4%] contactWhiteStar"
               />
             </div>
           </div>

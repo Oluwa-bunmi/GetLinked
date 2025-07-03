@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/getlinked.png";
 import menu from "../assets/menu.png";
 import exit from "../assets/exit.png";
-import { useState } from "react";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState(false);

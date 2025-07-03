@@ -39,7 +39,7 @@ const Timeline = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", duration: 2 }}
               viewport={{ once: true }}
-              className="text-xl font-bold md:text-2xl text-center lg:text-3xl clash"
+              className="text-xl font-medium md:text-2xl text-center lg:text-3xl clash"
             >
               Timeline
             </motion.h2>
